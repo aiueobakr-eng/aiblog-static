@@ -22,7 +22,7 @@
     .input-text { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; }
     .btn-submit { background: #3498db; color: #fff; border: none; padding: 15px; border-radius: 6px; width: 100%; cursor: pointer; }
     .comment-item { display: flex; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
-    .yt-pfp { width: 45px; height: 45px; background: #eee url('/comment.png') center/cover; border-radius: 50%; margin-right: 15px; }
+    .yt-pfp { width: 45px; height: 45px; background: #e1e8ed url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23aab8c2"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') center/cover; border-radius: 50%; margin-right: 15px; }
     .ai-reply-container { margin-top: 10px; margin-left: 60px; padding: 12px; background: #eaf4fc; border-radius: 6px; border-left: 4px solid #3498db; }
     .archive-month { font-weight: bold; color: #3498db; padding: 12px 0; display: block; border-bottom: 1px solid #f0f0f0; }
     .archive-days { padding: 0; list-style: none; margin: 10px 0; }
@@ -74,8 +74,7 @@
         try {
           const res = await fetch(GAS_URL, { 
             method: 'POST', 
-            // ★修正ポイント：ブラウザのセキュリティブロックを回避するおまじないを追加
-            headers: { 'Content-Type': 'text/plain' },
+            headers: { 'Content-Type': 'text/plain' }, 
             body: JSON.stringify({ article_id: id, author: document.getElementById('name').value, comment: msg }) 
           });
           const json = await res.json();
